@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John's Todo App</title>
+</head>
+
+<body>
+    <input id="todo-title" type="text" />
+    <button onclick="addTodo()">Add Todo</button>
+    <div id="todo-list"></div>
+
+    <script>
+        function breakSpace() {
+            let element = document.createElement('br');
+            document.body.appendChild(element);
+        }
+
+        const todos = ['Get groceries', 'Wash car', 'Make dinner'];
+
+        function render() {
+            //resets the list
+            document.getElementById('todo-list').innerHTML = '';
+
+            todos.forEach(function (todoTitle) {
+                const element = document.createElement('div');
+                element.innerText = todoTitle;
+                const todoList = document.getElementById('todo-list');
+                todoList.appendChild(element);
+            });
+        }
+
+        render();
+        
+        function addTodo() {
+            //This code tells the computer to get an element by its id
+            const textbox = document.getElementById('todo-title');
+            const title = textbox.value;
+            todos.push(title);
+            render();
+        }
+    </script>
+</body>
+
+</html>
